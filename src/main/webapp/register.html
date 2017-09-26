@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+</head>
+<body>
+用户名：<input type="text" id="username"><br>
+密码： <input type="password" id="password"><br>
+<input type="button" value="注册" onclick="register()">
+</body>
+<script src="res/js/jquery-3.2.1.js"></script>
+<script src="res/js/BaseUtil.js"></script>
+<script >
+    function register() {
+        var username = document.querySelector("#username").value;
+        var password = document.querySelector("#password").value;
+        var result = RequestUtil.postDataSync("/user/register", {username: username, password: password});
+        if (result && result.ok) {
+            alert(result.message);
+            window.location.href='login.html';
+        } else {
+            alert(result.message);
+        }
+
+    }
+</script>
+</html>

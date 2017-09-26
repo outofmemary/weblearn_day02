@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+您已经成功登录
+</body>
+<script src="res/js/jquery-3.2.1.js"></script>
+<script src="res/js/BaseUtil.js"></script>
+<script >
+    isLogin();
+    function isLogin() {
+        var result = RequestUtil.postDataSync("/user/isUserLogin" );
+        if (result && result.ok) {
+        } else {
+            window.location.href = 'login.html';
+        }
+
+    }
+</script>
+</html>
